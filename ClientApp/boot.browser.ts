@@ -1,5 +1,5 @@
 import './polyfills/browser.polyfills';
-import { enableProdMode } from '@angular/core';
+import { enableProdMode, NgModuleRef } from '@angular/core';
 import { platformBrowserDynamic } from '@angular/platform-browser-dynamic';
 import { AppModule } from './app/app.module.browser';
 
@@ -15,4 +15,10 @@ if (module['hot']) {
     enableProdMode();
 }
 
-const modulePromise = platformBrowserDynamic().bootstrapModule(AppModule);
+const artificialNetworkDelay = 5000;
+
+const modulePromise: Promise<NgModuleRef<AppModule>> = new Promise((resolve) => {
+    setTimeout(() => {
+        resolve(platformBrowserDynamic().bootstrapModule(AppModule));
+    }, artificialNetworkDelay);
+});

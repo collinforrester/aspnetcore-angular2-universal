@@ -138,7 +138,7 @@ export function createTranslateLoader(http: Http, baseHref) {
         ], {
           // Router options
           useHash: false,
-          preloadingStrategy: PreloadAllModules,
+        //   preloadingStrategy: PreloadAllModules,
           initialNavigation: 'enabled'
         })
     ],
